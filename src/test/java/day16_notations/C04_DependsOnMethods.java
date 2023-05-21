@@ -15,7 +15,12 @@ import utilities.TestBase;
 import java.time.Duration;
 
 public class C04_DependsOnMethods  {
-    protected WebDriver driver;
+    /*
+     DependsOnMethods test methodlarının çalışma sıralamasına karışmaz
+    Sadece bağlı olan test, bağlandığı testin sonucuna bakar. Bağlandığı test PASSED
+    olmazsa bağlanan test hiç çalışmaz(ignore)
+     */
+    WebDriver driver;
 
     @BeforeClass
     public void setUp() {
@@ -32,16 +37,16 @@ public class C04_DependsOnMethods  {
 
     @Test
     public void test01() {
-        driver.get("https://www.amazon.com");
+        driver.get("https://www.ramazon1.com");
     }
 
-    @Test
+    @Test(dependsOnMethods = "test01")
     public void test02() {
         WebElement aramaKutusu=driver.findElement(By.id("twotabsearchtextbox"));
         aramaKutusu.sendKeys("Nutella"+ Keys.ENTER);
     }
 
-    @Test
+    @Test(dependsOnMethods = "test02")
     public void test03() {
         WebElement sonucYaziElementi=driver.findElement(By.xpath("//div[@class='a-section a-spacing-small a-spacing-top-small']"));
 
