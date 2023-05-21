@@ -6,7 +6,7 @@ import utilities.TestBase;
 public class C01_BeforeMethod_AfterMethod extends TestBase {
 
     @Test
-    public void test01() {
+    public void amazonTest() {
         driver.get("https://www.amazon.com");
     }
 
@@ -16,7 +16,7 @@ public class C01_BeforeMethod_AfterMethod extends TestBase {
     }
 
     @Test
-    public void test03() {
+    public void facebookTest() {
         driver.get("https://www.facebook.com");
     }
 
