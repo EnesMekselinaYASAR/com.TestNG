@@ -1,4 +1,4 @@
-package day16_notations;
+package tests.day16_notations;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -37,10 +37,10 @@ public class C04_DependsOnMethods  {
 
     @Test
     public void test01() {
-        driver.get("https://www.ramazon1.com");
+        driver.get("https://www.amazon.com");
     }
 
-    @Test(dependsOnMethods = "test01")
+    @Test(dependsOnMethods = "test01",priority = 0)
     public void test02() {
         WebElement aramaKutusu=driver.findElement(By.id("twotabsearchtextbox"));
         aramaKutusu.sendKeys("Nutella"+ Keys.ENTER);
@@ -50,8 +50,10 @@ public class C04_DependsOnMethods  {
     public void test03() {
         WebElement sonucYaziElementi=driver.findElement(By.xpath("//div[@class='a-section a-spacing-small a-spacing-top-small']"));
 
-        Assert.assertTrue(sonucYaziElementi.getText().contains("Nutella"));
+        Assert.assertTrue(sonucYaziElementi.getText().contains("Nutella"));    }
 
-
+    @Test
+    public void test04(){
+        System.out.println("bak bu calisti");
     }
 }
