@@ -37,7 +37,7 @@ public class C05_Assertions extends TestBase {
     public void test01() {
         driver.get("https://www.amazon.com");
 
-        String expectedTitle="amazon";
+        String expectedTitle="Amazon";
         String actualTitle=driver.getTitle();
         Assert.assertTrue(actualTitle.contains(expectedTitle));
 
@@ -48,6 +48,6 @@ public class C05_Assertions extends TestBase {
         WebElement sonucYaziElementi=driver.findElement(By.xpath("//div[@class='a-section a-spacing-small a-spacing-top-small']"));
         Assert.assertTrue(sonucYaziElementi.isDisplayed());
 
-        Assert.assertTrue(sonucYaziElementi.getText().contains("Kutella"));
+        Assert.assertTrue(sonucYaziElementi.getText().contains("Nutella"));
     }
 }
