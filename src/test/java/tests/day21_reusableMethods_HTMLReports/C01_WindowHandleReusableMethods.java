@@ -42,5 +42,6 @@ public class C01_WindowHandleReusableMethods {
         String expectedTitle = "New Window";
         String actualTitle = Driver.getDriver().getTitle();
         Assert.assertEquals(actualTitle,expectedTitle);
+        Driver.closeDriver();
     }
 }
