@@ -27,6 +27,10 @@ public class Driver {
     mümkün OLAMAZ.
      */
 
+    private Driver(){
+
+    }
+
     static WebDriver driver;
 
     public static WebDriver getDriver() {
