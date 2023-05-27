@@ -2,12 +2,15 @@ package tests.day22_crossBrowser;
 
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.AmazonPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
 public class C03_DataProvider {
+
+
     @Test
     public void test01() {
         AmazonPage amazonPage=new AmazonPage();
@@ -17,6 +20,12 @@ public class C03_DataProvider {
         String actualSonuc=amazonPage.aramaSonucElementi.getText();
         Assert.assertTrue(actualSonuc.contains(expectedKelime));
         Driver.closeDriver();
+    }
+
+    @DataProvider
+    public static Object[][] AranacakKelimeler() {
+        Object[][] arananKelimelerArrayi={{"Nutella"}, {"Java"}, {"cigdem"}, {"Turkey"}};
+        return arananKelimelerArrayi;
     }
 
     @Test(dataProvider = "AranacakKelimeler")
